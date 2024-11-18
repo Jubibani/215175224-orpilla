@@ -23,8 +23,8 @@
                         <img src="assets/CJ.jpg" alt="Profile Picture">
                     </div>
                     <div class="card-back">
-                        <p class="desc">Developer</p>
-                        <p>21-5165-224</p>
+                        <p class="desc">Student</p>
+                        <p>21-5175-224</p>
                         <p>Web Dev</p>
                     </div>
                 </div>
