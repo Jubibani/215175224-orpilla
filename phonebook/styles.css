@@ -136,16 +136,53 @@ tr:hover {
 
 .submit-button:hover {
     background-color: #3182ce;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
 }
 
 .back-link {
     color: #4a5568;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 1rem;
+    position: relative;
 }
 
 .back-link:hover {
-    color: #2d3748;
+    color: #3182ce;
+    transform: scale(1.05);
+}
+
+/* Enhanced arrow animation */
+.back-link::before {
+    content: '←';
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin-right: 4px;
+}
+
+.back-link:hover::before {
+    transform: translateX(-4px);
+    color: #3182ce;
+}
+
+/* Optional: Add underline animation */
+.back-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #3182ce;
+    transition: width 0.3s ease;
+}
+
+.back-link:hover::after {
+    width: 100%;
 }
 
 /* Alert Styles */
@@ -179,6 +216,8 @@ tr:hover {
 
 .edit-button:hover {
     background-color: #3182ce;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
 }
 
 .delete-button {
@@ -188,4 +227,6 @@ tr:hover {
 
 .delete-button:hover {
     background-color: #e53e3e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(245, 101, 101, 0.2);
 }

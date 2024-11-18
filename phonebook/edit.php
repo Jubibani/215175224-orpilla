@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             <div class="form-actions">
                 <button type="submit" class="submit-button">Update Contact</button>
-                <a href="index.php" class="back-link">← Back to Phonebook</a>
+                <a href="index.php" class="back-link">Back to Phonebook</a>
             </div>
         </form>
     </div>

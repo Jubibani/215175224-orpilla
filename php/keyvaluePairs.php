@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key-Value Pairs with foreach</title>
+    <title>Key Value Pairs</title>
     <style>
         /* Reset and base styling */
         * {
@@ -64,11 +64,72 @@
         .value {
             color: #555;
         }
+
+        /* Add the header container style */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Back link styles outside container */
+        .back-link {
+            float: right;
+            position: relative;
+            top: 190px;
+            left: 150px;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 1rem;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            color: #3182ce;
+            transform: scale(1.05);
+        }
+
+        /* Enhanced arrow animation */
+        .back-link::before {
+            content: '←';
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin-right: 4px;
+        }
+
+        .back-link:hover::before {
+            transform: translateX(-4px);
+            color: #3182ce;
+        }
+
+        /* Optional: Add underline animation */
+        .back-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3182ce;
+            transition: width 0.3s ease;
+        }
+
+        .back-link:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
+    <a href="../index.php" class="back-link">Back to Activities</a>
     <div class="container">
-        <h1>Student Information</h1>
+        <div class="header">
+            <h1>Key Value Pairs</h1>
+        </div>
         <div class="key-value-pairs">
             <?php
                 $student_info = [

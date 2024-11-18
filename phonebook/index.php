@@ -19,7 +19,10 @@ try {
 </head>
 <body>
     <div class="container">
-        <h1>Phonebook Directory</h1>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h1>Phonebook Directory</h1>
+            <a href="../index.php" class="back-link">Back to Activities</a>
+        </div>
         <a href="add.php" class="add-button">+ Add New Contact</a>
         
         <table>
@@ -28,7 +31,7 @@ try {
                     <th>Name</th>
                     <th>Phone Number</th>
                     <th>Email</th>
-                    <th>Actions</th>
+                    <th>Update</th>
                 </tr>
             </thead>
             <tbody>

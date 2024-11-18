@@ -74,11 +74,66 @@
             color: #2e7d32;
             font-weight: bold;
         }
+
+        /* Add the header container style */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Back link styles */
+        .back-link {
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .back-link:hover {
+            color: #3182ce;
+            transform: scale(1.05);
+        }
+
+        .back-link::before {
+            content: '←';
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin-right: 4px;
+        }
+
+        .back-link:hover::before {
+            transform: translateX(-4px);
+            color: #3182ce;
+        }
+
+        .back-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3182ce;
+            transition: width 0.3s ease;
+        }
+
+        .back-link:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>FizzBuzz Challenge</h1>
+        <div class="header">
+            <h1>FizzBuzz Challenge</h1>
+            <a href="../index.php" class="back-link">Back to Activities</a>
+        </div>
         <div class="fizzbuzz-output">
             <?php
                 for ($i = 1; $i <= 50; $i++) {
