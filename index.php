@@ -5,12 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Exercises Index</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/CJ.jpg">
+
+
+
 </head>
 <body>
     <div class="layout">
         <div class="sidebar">
             <h1>PHP Exercises</h1>
+
             <div class="author">By Christopher Jiovanni Orpilla</div>
+
+            <div class="card-container">
+                <div class="flip-card">
+                    <div class="card-front">
+                        <img src="assets/CJ.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="card-back">
+                        <p class="desc">Developer</p>
+                        <p>21-5165-224</p>
+                        <p>Web Dev</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container">
             <ul class="exercise-list">

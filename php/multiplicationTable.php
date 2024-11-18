@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiplication Table</title>
+
+    <link rel="icon" type="image/png" href="../assets/CJ.jpg">
     <style>
         /* Reset and base styling */
         * {
@@ -116,7 +118,6 @@
     <a href="../index.php" class="back-link">Back to Activities</a>
     <div class="table-container">
         <div class="header">
-            <h1>Multiplication Table</h1>
         </div>
         <h1>Multiplication Table of 7</h1>
         <?php
