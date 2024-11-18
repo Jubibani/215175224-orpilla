@@ -1,17 +1,19 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";  // Update if you have set a password
-$dbname = "phonebook";
+    $servername = "localhost";
+    $username = "phonebook_user";
+    $password = "password123";
+    $dbname = "phonebook";
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // Remove or comment out this line in production
-    // echo "Connected successfully";
-} catch(PDOException $e) {
-    // Don't expose detailed error messages in production
-    error_log("Connection failed: " . $e->getMessage());
-    die("Database connection failed. Please try again later.");
-}
+    try {
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        
+        if ($conn->connect_error) {
+            throw new Exception('Connection failed: ' . $conn->connect_error);
+        }
+    } catch(Exception $e) {
+        echo "Connection failed: " . $e->getMessage();
+        echo "<br>PHP Version: " . phpversion();
+        echo "<br>Loaded extensions: " . implode(', ', get_loaded_extensions());
+        die();
+    }
 ?> 

@@ -3,10 +3,30 @@ include 'db.php';
 
 $message = '';
 
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    
+    // Fetch existing contact data
+    try {
+        $stmt = $conn->prepare("SELECT * FROM contacts WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $contact = $result->fetch_assoc();
+        
+        if (!$contact) {
+            header("Location: index.php");
+            exit();
+        }
+    } catch(Exception $e) {
+        $message = "Error: " . $e->getMessage();
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
-        $stmt = $conn->prepare("INSERT INTO contacts (name, phone, email) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $_POST['name'], $_POST['phone'], $_POST['email']);
+        $stmt = $conn->prepare("UPDATE contacts SET name = ?, phone = ?, email = ? WHERE id = ?");
+        $stmt->bind_param("sssi", $_POST['name'], $_POST['phone'], $_POST['email'], $id);
         $stmt->execute();
         header("Location: index.php");
         exit();
@@ -19,14 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add New Contact</title>
+    <title>Edit Contact</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Add New Contact</h1>
+        <h1>Edit Contact</h1>
         
         <?php if ($message): ?>
             <div class="alert"><?php echo $message; ?></div>
@@ -41,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     name="name" 
                     required 
                     placeholder="Enter full name"
+                    value="<?php echo htmlspecialchars($contact['name']); ?>"
                 >
             </div>
             
@@ -52,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     name="phone" 
                     required 
                     placeholder="Enter phone number"
+                    value="<?php echo htmlspecialchars($contact['phone']); ?>"
                 >
             </div>
             
@@ -63,14 +85,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     name="email" 
                     required 
                     placeholder="Enter email address"
+                    value="<?php echo htmlspecialchars($contact['email']); ?>"
                 >
             </div>
             
             <div class="form-actions">
-                <button type="submit" class="submit-button">Save Contact</button>
+                <button type="submit" class="submit-button">Update Contact</button>
                 <a href="index.php" class="back-link">← Back to Phonebook</a>
             </div>
         </form>
     </div>
 </body>
-</html> 
+</html>

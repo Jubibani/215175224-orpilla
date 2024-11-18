@@ -26,6 +26,7 @@
                 <li><a href="php/primenumberChecker.php">Prime Number Checker</a></li>
                 <li><a href="php/reverseString.php">Reverse String</a></li>
                 <li><a href="php/sumOfNumbers.php">Sum of Numbers</a></li>
+                <li><a href="phonebook/index.php">Phonebook</a></li>
             </ul>
         </div>
     </div>
